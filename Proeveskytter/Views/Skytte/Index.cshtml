@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Proeveskytter.Models.Skytte>
+
+@{
+    ViewData["Title"] = "Skytter";
+}
+
+<h1>Skytter</h1>
+
+<p>
+    <a asp-action="Create">Opret ny</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Navn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdNr)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Navn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNr)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Ret</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Slet</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

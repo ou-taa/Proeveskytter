@@ -13,6 +13,14 @@ namespace Proeveskytter.Data
         public string DatabaseFilnavn { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
+     
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlite("Data Source=proeveskytter.db");
+            }
         }
     }
 }

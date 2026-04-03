@@ -1,0 +1,41 @@
+﻿@model Proeveskytter.Models.Skytte
+
+@{
+    ViewData["Title"] = "Ret skytte";
+}
+
+<h1>Ret skytte</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Navn" class="control-label"></label>
+                <input asp-for="Navn" class="form-control" />
+                <span asp-validation-for="Navn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdType" class="control-label"></label>
+                <select asp-for="IdType" class="form-control" asp-items="ViewBag.IdTyper"></select>
+                <span asp-validation-for="IdType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdNr" class="control-label"></label>
+                <input asp-for="IdNr" class="form-control" />
+                <span asp-validation-for="IdNr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gem" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a asp-action="Index">Skytteliste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
