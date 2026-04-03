@@ -49,8 +49,9 @@ namespace Proeveskytter.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "{0} skal være mindst {2} og maksimalt {1} tegn langt.", MinimumLength = 6)]
             [DataType(DataType.Password)]
+            [Display(Name = "Adgangskode")]
             public string Password { get; set; }
 
             /// <summary>
@@ -58,8 +59,8 @@ namespace Proeveskytter.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Bekræft adgangskode")]
+            [Compare("Password", ErrorMessage = "Adgangskoderne er ikke ens")]
             public string ConfirmPassword { get; set; }
 
             /// <summary>
