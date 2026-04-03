@@ -1,0 +1,35 @@
+﻿@model Proeveskytter.Models.Skydning
+
+@{
+    ViewData["Title"] = "Slet prøveskydning";
+}
+
+<h2>Slet prøveskydning</h2>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Skytte
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Skytte.Navn)
+        </dd>
+    </dl>
+</div>
+<h4>Vil du slette nedenstående skydning?</h4>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dato)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dato)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="SkytteId" />
+        <input type="submit" value="Slet" class="btn btn-danger" /> |
+        <a asp-action="Index">Tilbage til liste med skydninger</a>
+    </form>
+</div>

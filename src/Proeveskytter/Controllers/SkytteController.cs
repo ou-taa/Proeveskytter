@@ -18,7 +18,10 @@ namespace Proeveskytter.Controllers
         // GET: Skytte
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Skytter.ToListAsync());
+            return View(await _context.Skytter
+                .Include(s => s.Skydninger)
+                .OrderBy(s => s.Navn)
+                .ToListAsync());
         }
 
         // GET: Skytte/Details/5

@@ -1,0 +1,42 @@
+﻿@model Proeveskytter.Models.Skytte
+
+@{
+    ViewData["Title"] = "Skytte med skydninger";
+}
+<h2>Prøveskydninger uden medlemmsskab</h2>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Skytte
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Navn)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Create" asp-route-id="@Model.Id">Opret ny skydning</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Dato
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Skydning skydning in Model.Skydninger)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => skydning.Dato)
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@skydning.Id">Slet</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

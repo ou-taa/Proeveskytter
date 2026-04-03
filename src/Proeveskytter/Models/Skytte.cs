@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Proeveskytter.Models
 {
@@ -10,8 +11,15 @@ namespace Proeveskytter.Models
         [Display(Name = "Billed-id type")]
         public IdType IdType { get; set; }
 
-        [Display (Name = "Pas eller kørekort nummer")]
+        [Display(Name = "Pas eller kørekort nummer")]
         public string IdNr { get; set; } = string.Empty;
-        public ICollection<Skydning>? Skydninger { get; set; }
+        public ICollection<Skydning> Skydninger { get; set; } = [];
+        public int AntalSkydninger
+        {
+            get
+            { 
+                return Skydninger?.Count ?? 0; 
+            }
+        }
     }
 }

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Proeveskytter.Models.Skytte>
+
+@{
+    ViewData["Title"] = "Ousted Tåning skytteforening - Logbog";
+}
+
+<table class="table table-bordered border-dark .table-sm">
+    <thead>
+        <tr>
+            <th colspan="4">
+                Ousted Tåning skytteforening - Logbog - Prøveskytter
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3">
+                Prøveskytten
+            </th>
+            <th>Prøveskydning</th>
+        </tr>
+        <tr>
+            <th>
+                Navn
+            </th>
+            <th>
+                ID-Type
+            </th>
+            <th>
+                ID-nummer
+            </th>
+            <th>
+                Dato
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Skytte skytte in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => skytte.Navn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => skytte.IdType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => skytte.IdNr)
+                </td>
+                <td>
+                    <ul>
+                        @foreach (Skydning skydning in skytte.Skydninger)
+                        {
+                            <li>
+                                @Html.DisplayFor(modelItem => skydning.Dato)
+
+                            </li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
