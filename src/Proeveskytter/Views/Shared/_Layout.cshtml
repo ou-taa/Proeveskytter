@@ -31,6 +31,9 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Logbog" asp-action="Index">Logbog</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/identity/account/register">Opret ny bruger</a>
+                            </li>
                         }
                         <li class="nav-item ms-auto">
                             @if (User.Identity != null && User.Identity.IsAuthenticated)
