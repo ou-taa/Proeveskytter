@@ -73,7 +73,12 @@ namespace Proeveskytter.Areas.Identity.Pages.Account
                 await _emailSender.SendEmailAsync(
                     Input.Email,
                     $"Nulstil adgangskode til {Request.Host}",
-                    $"Klik på dette link for at nulstille din adgangskode <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>klik her</a>.");
+                    $"<p>Hej</p>" +
+                    $"<p>Du modtager denne mail fordi du har bedt om at få nulstillet din adgangskode</p>" +
+                    $"<p>Klik på <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>dette link</a> for at nulstille din adgangskode .</p>" +
+                    $"<p>Hvis du <i>ikke</i> har bedt om at få din adgangskode nulstillet, kan du blot ignorere og slette denne besked" +
+                    $"<p>Med venlig hilsen</p>" +
+                    $"<p>{Request.Host}");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

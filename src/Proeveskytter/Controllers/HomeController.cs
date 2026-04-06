@@ -19,7 +19,7 @@ namespace Proeveskytter.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            Response.StatusCode = 200; // 👈 tving 200 OK
+            Response.StatusCode = 404; // 👈 tving 200 OK
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

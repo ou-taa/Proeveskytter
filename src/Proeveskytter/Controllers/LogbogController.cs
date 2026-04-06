@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proeveskytter.Data;
 
 
 namespace Proeveskytter.Controllers
 {
+    [Authorize]
     public class LogbogController : Controller
     {
         private readonly DatabaseContext _context;
