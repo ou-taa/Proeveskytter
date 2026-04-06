@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Proeveskytter.Models
+namespace Proeveskytter.Models.Entities
 {
     public class Skytte
     {

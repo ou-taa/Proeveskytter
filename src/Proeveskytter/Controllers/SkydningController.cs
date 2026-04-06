@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proeveskytter.Data;
-using Proeveskytter.Models;
+using Proeveskytter.Models.Entities;
 
 namespace Proeveskytter.Controllers
 {

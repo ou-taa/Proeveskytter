@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Proeveskytter.Models;
+using Proeveskytter.Models.Entities;
 
 namespace Proeveskytter.Data
 {
