@@ -8,6 +8,7 @@ using Proeveskytter.Models;
 namespace Proeveskytter.Controllers
 {
     [Authorize]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class SkytteController : Controller
     {
         private readonly DatabaseContext _context;

@@ -7,6 +7,7 @@ using Proeveskytter.Data;
 namespace Proeveskytter.Controllers
 {
     [Authorize]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class LogbogController : Controller
     {
         private readonly DatabaseContext _context;

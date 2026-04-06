@@ -7,6 +7,7 @@ using Proeveskytter.Models;
 namespace Proeveskytter.Controllers
 {
     [Authorize]
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class SkydningController : Controller
     {
         private readonly DatabaseContext _context;
