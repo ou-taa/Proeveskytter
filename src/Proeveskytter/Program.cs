@@ -6,9 +6,10 @@ using Proeveskytter.Data;
 using Proeveskytter.Models;
 using Proeveskytter.Models.Security;
 using Proeveskytter.Services;
-using System.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DatabaseContextConnection' not found."); ;
+
+
 
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(connectionString));
 
