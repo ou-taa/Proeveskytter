@@ -6,10 +6,23 @@ using Proeveskytter.Data;
 using Proeveskytter.Models;
 using Proeveskytter.Models.Security;
 using Proeveskytter.Services;
-var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DatabaseContextConnection' not found."); ;
 
 
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+string databaseSti = string.Empty;
+
+string databasePlacering = builder.Configuration["DatabasePlacering"] ?? string.Empty;
+if (databasePlacering.StartsWith('.'))
+{
+    string rodSti = builder.Environment.ContentRootPath;
+    databaseSti = Path.GetFullPath(Path.Combine(rodSti, databasePlacering));
+}
+else
+{
+    databaseSti = databasePlacering;
+}
+string connectionString = $"Data Source={databaseSti}";
 
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlite(connectionString));
 
@@ -35,10 +48,10 @@ builder.Services.AddHsts(options =>
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 
-builder.Services.AddAntiforgery( options =>
+builder.Services.AddAntiforgery(options =>
         {
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-});
+            options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        });
 
 var app = builder.Build();
 
